@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  influxdb:
+    image: influxdb:latest
+    restart: unless-stopped
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+      - influxdb_config:/etc/influxdb2 # Opsional untuk konfigurasi persisten
+    ports:
+      - "8086:8086"
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: akbar@wit.com
+      DOCKER_INFLUXDB_INIT_PASSWORD: akbarWIT2024
+      DOCKER_INFLUXDB_INIT_ORG: WIT.SBY
+      DOCKER_INFLUXDB_INIT_BUCKET: bucket@wit # Ditambahkan sesuai permintaan Anda
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: tokenSimulasiWIT@akbar2024
+
+  emqx:
+    image: emqx:latest
+    restart: unless-stopped
+    ports:
+      - "1883:1883" # Port MQTT default
+      - "8083:8083"
+      - "8084:8084"
+      - "8883:8883"
+      - "18083:18083"
+    volumes:
+      - emqx_data:/data # Opsional untuk data persisten
+
+volumes:
+  influxdb_data: {}
+  influxdb_config: {} # Opsional
+  emqx_data: {} # Opsional
