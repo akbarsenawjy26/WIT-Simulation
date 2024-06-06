@@ -3,8 +3,8 @@
 #include <PubSubClient.h>
 
 // WiFi config
-const char *ssid = "TMU";              // changes with ur SSID
-const char *password = "BambangDjaja"; // changes with ur Password
+const char *ssid = "Sena";            // changes with ur SSID
+const char *password = "senabaik123"; // changes with ur Password
 
 // MQTT config
 const char *mqtt_server = "192.168.18.63"; // Ganti dengan IP Localhost
