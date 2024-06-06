@@ -6,9 +6,7 @@
 2. Jalankan perintah `docker-compose up -d`.
 3. Periksa pada port localhost:
    a. **InfluxDB** - [localhost:8086](http://localhost:8086) - Username: akbar@wit.com - Password: akbarWIT2024
-
    b. **EMQX** - [localhost:18083](http://localhost:18083) - Username: admin - Password: public
-
    c. **MySQL** - [localhost:8081](http://localhost:8081) - Username: akbar@wit.com - Password: akbarWIT2024
 
 ### Firmware
