@@ -29,7 +29,31 @@ services:
     volumes:
       - emqx_data:/data
 
+  mysql:
+    image: mysql:latest
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: akbarWIT2024
+      MYSQL_DATABASE: db@wit
+      MYSQL_USER: akbar@wit.com
+      MYSQL_PASSWORD: akbarWIT2024
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: akbarWIT2024
+    ports:
+      - "8081:80"
+
 volumes:
   influxdb_data: {}
   influxdb_config: {}
   emqx_data: {}
+  mysql_data: {}
