@@ -17,7 +17,7 @@ topic_Heartbeat = "wit/simulasi/heartbeat"
 
 # InfluxDB config
 influxdb_url = "http://localhost:8086"
-influxdb_token = "6ZhdRSn7TKnmik7V13ha7i-nkBz22geD_PXvAzQV_RgYTBpgGcYLB2hGwNzpvh5LiRoSmTQD8KCGCutkDjjxSw=="
+influxdb_token = "Kt6RQgjODJw4Dt8bCdes0iKEadx3E2G-xSySDQQfyQMu6AH8WW3wccf6j1DZt0mQk-2UGextsXdJJwm7of0e4A=="
 influxdb_org = "WIT.SBY"
 influxdb_bucket = "bucket@wit"
 
