@@ -1,9 +1,9 @@
 const mqtt = require("mqtt");
+const { saveToInfluxDB } = require("./influxdbHandler");
 
 // Konfigurasi koneksi ke broker MQTT
 const mqttClient = mqtt.connect("https://localhost:1883");
 
-// Objek untuk menyimpan data
 const dataStore = {
   topic1: null,
   topic2: null,
@@ -38,6 +38,8 @@ mqttClient.on("message", (topic, message) => {
   } else if (topic === "wit/simulasi/heartbeat") {
     dataStore.topic3 = message.toString();
   }
+  // Simpan data ke InfluxDB
+  saveToInfluxDB(topic, message.toString());
 });
 
 module.exports = {
