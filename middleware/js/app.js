@@ -1,21 +1,13 @@
 const express = require("express");
-const { dataStore } = require("./mqttClient"); // Impor dataStore dari mqttClient
+const { dataStore } = require("./mqttClient"); // Impor dataStore dari mqttClient.js
+const { InfluxDB } = require("@influxdata/influxdb-client"); // Impor InfluxDB client
+const influxdbAPI = require("./influxdbHandler"); // Impor router dari influxdbAPI.js
 
 const app = express();
 const port = 3001;
-const router = express.Router();
 
-// Endpoint API untuk menampilkan data
-router.get("/api/data", (req, res) => {
-  console.log("datastore:", dataStore);
-  res.json({
-    topic1: dataStore.topic1,
-    topic2: dataStore.topic2,
-    topic3: dataStore.topic3,
-  });
-});
-
-app.use(router);
+// Menggunakan router dari influxdbAPI.js untuk endpoint API InfluxDB
+app.use(influxdbAPI.router);
 
 app.listen(port, () => {
   console.log(`Server berjalan di http://localhost:${port}`);
